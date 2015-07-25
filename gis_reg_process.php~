@@ -73,7 +73,7 @@ curl_close($ch1);
 //$json = file_get_contents($lc_json, false, stream_context_create($arrContextOptions)); 
 //$lc_gis_map = (array)json_decode($json); 
 
-///////Get LCs from MKT Tracking Tool API/////////////////
+///////Get EXPA Leads from MKT Tracking Tool API/////////////////
 $string = file_get_contents('config.json');
 $config = json_decode($string, true);
 $url = $config['api_host'].'/api/v1/get-lcs';

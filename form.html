@@ -1,76 +1,137 @@
-<form action="{path-gis_reg_process}" method="POST" class="regform" id="expa_reg_form" accept-charset="UTF-8">
-<table class="sighnup-form-table">
-    <tr>
-    <td class="input-name">{name} <span class="required">*</span></td>
-    <td><input id="first_name" class="input" type="text" maxlength="50" name="first_name" 
-      required 
-      oninvalid="this.setCustomValidity('Your name')" 
+<form action="{path-manage_registration}" method="POST" class="regform" id="expa_reg_form" accept-charset="UTF-8">
+<div class="sighnup-form-table">
+	<div class="form-group name">
+		<div class="input-name">Imię<span class="required">*</span></div>
+		<div class="input-field">
+      <input class="text required expa-input" id="first_name" name="first_name" type="text" maxlength="50"
+			required
+			oninvalid="this.setCustomValidity('Podaj swoje imię')" 
+			oninput="setCustomValidity('')">
+    </div>
+	</div>
+  <div class="form-group name">
+    <div class="input-name">Nazwisko<span class="required">*</span></div>
+    <div class="input-field">
+      <input class="text required expa-input" id="last_name" name="last_name" type="text" maxlength="50"
+      required
+      oninvalid="this.setCustomValidity('Podaj swoje nazwisko')" 
       oninput="setCustomValidity('')">
-    </td>
-  </tr>
-  <tr>
-    <td class="input-name">{surname} <span class="required">*</span></td>
-    <td><input id="last_name" class="input" type="text" name="last_name" maxlength="50"
+    </div>
+  </div>
+	<div class="form-group email">
+		<div class="input-name">Adres e-mail <span class="required">*</span></div>
+		<div class="input-field"><input class="text required expa-input" id="email" name="email" type="text" maxlength="50"
+			required
+			oninvalid="this.setCustomValidity('Podaj prawidłowy adres e-mail')"
+			oninput="setCustomValidity('')"
+			pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$">
+		</div>
+	</div>
+  <div class="form-group phone">
+    <div class="input-name">Numer telefonu dla szybszgo kontaktu</div>
+    <div class="input-field"> <input class="text expa-input" id="phone_number" name="phone_number" type="text" maxlength="50">
+    </div>
+  </div>
+  <div class="form-group password">
+    <div class="input-name">Wybierz hasło <span class="required">*</span></div>
+    <div class="input-field"> <input class="text required expa-input" id="password" name="password" type="password"
       required 
-      oninvalid="this.setCustomValidity('Your surname')" 
-      oninput="setCustomValidity('')"> 
-    </td>
-  </tr>
-  <tr>
-    <td class="input-name">{e-mail} <span class="required">*</span></td>
-    <td> <input id="email" class="input" type="text" name="email" maxlength="50"
-      required 
-      oninvalid="this.setCustomValidity('Please input valid e-mail')" 
-      oninput="setCustomValidity('')" 
-      pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$">
-    </td>
-  </tr>
-  <tr>
-    <td class="input-name">{password}<span class="required">*</span></td> 
-    <td><input id="password" class="input" type="password" name="password" 
-      required 
-      oninvalid="this.setCustomValidity('Your password needs to be at least 8 characters long')" 
+      oninvalid="this.setCustomValidity('Hasło musi mieć przynajmniej 8 znaków')" 
       oninput="setCustomValidity('')"
-      pattern=".{8,}"> 
-    </td>
-  </tr>
-  <tr>
-    <td class="input-name">{lead-name} <span class="required">*</span></td>
-    <td> 
-      <select id="university" name="university" title="{lead-name}">
+      pattern=".{8,}">
+    </div>
+  </div>
+	<div class="form-group university">
+    <div class="input-name">Uniwersytet <span class="required">*</span></div>
+    <div class="input-field"> 
+      <select id="university" name="university" title="Uniwersytet">
           {leads-option-list}
 
       </select>
-    </td>
-  </tr>
-  <tr>
-    <td class="input-name">{lc} </td> 
-    <td><input class="readonly" id="localcommittee" name="localcommittee" title="{lc}" type="text" readonly />
-    </td>
-  </tr>
-  <tr>
-            <input type="hidden" name="website_url" value="{website_url}">
-      </table>
-    <div id="error" class="error"><p></p></div>
-    <div id="submit">
-        <input type="submit" id="submit_button" name="submit" clicked="false" class="send" value="register aa">
     </div>
+  </div>
+  <div class="form-group localcommittee">
+    <div class="input-name">Oddział Lokalny <span class="required">*</span></div>
+    <div class="input-field"> 
+      <input class="readonly" id="localcommittee" name="localcommittee" title="{lc}" type="text" readonly />
+    </div>
+  </div>
+	
+	<div class="web-url">
+    <input type="hidden" name="utm_source" value="{utm_source}">
+    <input type="hidden" name="utm_medium" value="{utm_medium}">
+    <input type="hidden" name="utm_campaign" value="{utm_campaign}">
+    <input type="hidden" name="program" value="{program}">
+    <input type="hidden" name="uniqid" value="{uniqid}">
+    <input type="hidden" name="bucket" value="{bucket}">
+    <input type="hidden" name="lc" value="{lc}">
+    <input type="hidden" name="website_url" value="{website_url}">
+  </div>
+	<div id="error" class="error"><p></p></div>
+	<div id="submit">
+		<input type="submit" id="submit_button" name="submit" clicked="false" class="send rotate" value="zarejestruj się">
+	</div>
+  <div id="loader">
+    <div class="spinner">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
+  </div>
+  <p id="thank-you-message" class="form-message">Dziękujemy bardzo za rejestrację. Wkrótce dostaniesz maila z potwierdzeniem założenia konta. Powodzenia w Twojej podróży do kariery!</p>
+<p id="error-message" class="form-message">Wystąpił błąd podczas rejestracji. Spróbuj później lub skontaktuj się z nami mailowo.</p>
+</div>
 </form>
 
-<script type='text/javascript' src='{path-gis_lcMapper}'></script>
+<!--<script type='text/javascript' src='{path-gis_lcMapper}'></script>-->
 <script type='text/javascript'>
 //var $j = jQuery.noConflict();
 jQuery(document).ready(function($){
-    var myJsonString = getLeads('{path-leads-json}');
+
+    //performs request to manage registration script
+    jQuery( '#expa_reg_form' ).on( 'submit', function(e) {
+      e.preventDefault();
+      var values = jQuery(this).serialize();
+      jQuery.ajax({
+            url: "{path-manage_registration}",
+            data: values,
+            async: true,
+            type: "POST",
+            success: function(){
+                //alert("success");
+                $('#thank-you-message').show();
+                //$("#result").html('Submitted successfully');
+            },
+            error:function(e){
+              var err = e['responseText'].replace('Array', '');
+              err = err.replace(/\s\s+/g, ' ')
+                //alert(err.);
+                $('#error-message').prepend('<b>'+err+'.</b><br>').show();
+                //$("#result").html('There is error while submit');
+            },
+            beforeSend: function() {
+               $('#loader').show();
+               $('.form-message').hide();
+            },
+            complete: function(){
+               $('#loader').hide();
+            }
+      });
+    });
+
+    //saves cookie and sends API request to update DB
+    jQuery.ajax({
+            url: "{path-manage_leads}?utm_source={utm_source}&utm_medium={utm_medium}&utm_campaign={utm_campaign}&program={program}&bucket={bucket}&lc={lc}&uniqid={uniqid}",
+            async: false,
+            type: "GET"
+    });
+
+    //var myJsonString = getLeads('{path-leads-json}');
     //jQuery(".regform").validationEngine();
     jQuery('#university').change(function($) {
-    //    $('#localcommittee').val((mapLC($('#university').val())));
-        jQuery('#localcommittee').val(mapLC(jQuery('#university').val()));
-    });
-    
-    jQuery('#submit_button').click(function($){
-        jQuery('#submit_button').attr('clicked', 'true');
-
+       // $('#localcommittee').val((mapLC($('#university').val())));
+       jQuery('#localcommittee').val(jQuery(this).val());
+       
     });
 });
 </script>

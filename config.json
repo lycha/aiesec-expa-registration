@@ -1,0 +1,6 @@
+{    
+	"api_host" : "http://localhost/mkt-tracking-tool/public", 
+	"api_auth_token" : "91650ef90e9da740b11ce91ce026af6e101c0c60",
+	"country_name" : "POLAND",
+    "mc_id" : "1626"
+}
