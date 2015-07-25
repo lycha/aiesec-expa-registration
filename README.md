@@ -7,7 +7,7 @@ Author URI: https://www.linkedin.com/profile/view?id=202008277&trk=nav_responsiv
 License: GPL 
 */
 
-Plugin was created to manage OGX registrations. Form is connected to EXPA (internships.aiesec.org), MKT Tracking tool (http://aiesecpl.home.pl/mkt-tracking) and GT/GC Tracking tool in Google Spreadsheet. Each registration is saved in EXPA and internal Database via MKT Tracking Tool API. 
+Plugin was created to manage OGX registrations. Form is connected to EXPA (internships.aiesec.org), MKT Tracking tool (http://aiesecpl.home.pl/mkt-tracking/public) and GT/GC Tracking tool in Google Spreadsheet. Each registration is saved in EXPA and internal Database via MKT Tracking Tool API. 
 	
 	|--------------------------------------------------------------------------
 	| config.json
